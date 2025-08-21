@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedExtract AI | AI-Powered Medical Record Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .shiny-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+        .shiny-button:hover::after {
+            left: 150%;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .loader {
+            border-top-color: #4f46e5;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-2xl font-bold text-slate-900">MedExtract AI</span>
+            </div>
+            <a href="#pilot-program" class="hidden sm:inline-block bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-colors">Apply for Pilot Program</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <span class="inline-block bg-indigo-100 text-indigo-700 font-semibold px-4 py-1.5 rounded-full text-sm mb-4">The Future of Medico-Legal Workflow</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                    Stop Drowning in Medical Records. <br class="hidden md:block">
+                    <span class="gradient-text">Start Winning Cases.</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-600">
+                    MedExtract AI is the first AI-powered platform that automates medical record review for legal professionals. Turn hundreds of pages into a clear, interactive timeline in minutes.
+                </p>
+                <a href="#pilot-program" class="shiny-button relative inline-block bg-indigo-600 text-white px-8 py-4 rounded-lg font-bold text-lg mt-10 hover:bg-indigo-700 transition-colors overflow-hidden">
+                    Apply for the Exclusive Pilot Program
+                </a>
+                <div class="mt-16 mx-auto max-w-4xl bg-white rounded-2xl shadow-2xl p-4">
+                    <img src="https://placehold.co/1200x600/F3F4F6/4F46E5?text=Product+Animation+Placeholder" alt="Product animation showing a messy stack of papers transforming into a clean UI timeline" class="rounded-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Manual record review is slow, expensive, and prone to error.</h2>
+                    <p class="mt-4 text-lg text-slate-600">Your firm's most valuable resources—time and talent—are being consumed by a process that's ripe for innovation.</p>
+                </div>
+                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                    <!-- Pain Point 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="bg-indigo-100 rounded-full h-12 w-12 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-900">Hours Wasted</h3>
+                        <p class="mt-2 text-slate-600">Your team spends dozens of billable hours manually reading, summarizing, and cross-referencing records.</p>
+                    </div>
+                    <!-- Pain Point 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="bg-indigo-100 rounded-full h-12 w-12 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-900">Critical Details Missed</h3>
+                        <p class="mt-2 text-slate-600">It's easy to miss a key diagnosis or treatment gap buried in a 500-page file, putting your case at risk.</p>
+                    </div>
+                    <!-- Pain Point 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="bg-indigo-100 rounded-full h-12 w-12 flex items-center justify-center">
+                            <svg class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c.252 0 .487.02.718.057m-2.182 6.354a2.25 2.25 0 00-1.634 1.591L4.5 14.5m0 0l-2.182-2.182a2.25 2.25 0 00-1.591-1.634L4.5 14.5zM14.25 3.104c.252 0 .487.02.718.057m-2.182 6.354a2.25 2.25 0 01-1.634 1.591L10.5 14.5m0 0l2.182-2.182a2.25 2.25 0 011.591-1.634L10.5 14.5z"></path></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-900">Inefficient Workflow</h3>
+                        <p class="mt-2 text-slate-600">Juggling PDFs, spreadsheets, and notes creates a disorganized workflow that slows down your entire firm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Your AI-Powered Paralegal.</h2>
+                    <p class="mt-4 text-lg text-slate-600">MedExtract AI works tirelessly so you can focus on strategy. We provide the facts, you build the case.</p>
+                </div>
+                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="feature-card bg-slate-50/50 p-8 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-900">Instant Interactive Timeline</h3>
+                        <p class="mt-2 text-slate-600">Upload a PDF and instantly see a chronological timeline of every diagnosis, treatment, and provider visit.</p>
+                        <img src="https://placehold.co/600x400/E0E7FF/4F46E5?text=Timeline+UI" alt="Screenshot of the interactive timeline" class="mt-6 rounded-lg shadow-md">
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="feature-card bg-slate-50/50 p-8 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-900">"Click-to-Evidence"</h3>
+                        <p class="mt-2 text-slate-600">Instantly verify any extracted fact. Click a diagnosis, and our "Glass Box" AI shows you exactly where it appears in the source document.</p>
+                        <img src="https://placehold.co/600x400/E0E7FF/4F46E5?text=Click-to-Evidence+UI" alt="Screenshot of the click-to-evidence feature" class="mt-6 rounded-lg shadow-md">
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="feature-card bg-slate-50/50 p-8 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-900">Automated Reports</h3>
+                        <p class="mt-2 text-slate-600">Generate verbatim reports, privacy-aware redacted summaries, and QA checks with a single click.</p>
+                        <img src="https://placehold.co/600x400/E0E7FF/4F46E5?text=Reports+UI" alt="Screenshot of the reporting feature" class="mt-6 rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gemini API Demo Section -->
+        <section id="gemini-demo" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Experience the AI in Action</h2>
+                    <p class="mt-4 text-lg text-slate-600">Test the power of our underlying AI, powered by Google's Gemini. Paste a snippet of a medical note below to see what it can do.</p>
+                </div>
+                <div class="mt-16 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <!-- AI Summary Demo -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-2xl font-bold text-slate-900 flex items-center">
+                            <span class="text-2xl mr-2">✨</span> AI-Powered Summary
+                        </h3>
+                        <p class="text-slate-600 mt-2 mb-4">Paste any medical text to get an instant, concise summary.</p>
+                        <textarea id="summary-input" class="w-full h-40 p-3 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Paste medical text here..."></textarea>
+                        <button id="summary-button" class="mt-4 w-full bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">Generate Summary</button>
+                        <div id="summary-output-container" class="mt-4 hidden">
+                            <h4 class="font-bold text-slate-800">Generated Summary:</h4>
+                            <div id="summary-output" class="mt-2 p-4 bg-slate-50 rounded-md text-slate-700 prose max-w-none"></div>
+                        </div>
+                    </div>
+                    <!-- Ask a Question Demo -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-2xl font-bold text-slate-900 flex items-center">
+                            <span class="text-2xl mr-2">✨</span> Ask a Clinical Question
+                        </h3>
+                        <p class="text-slate-600 mt-2 mb-4">Paste text, then ask a specific question to find the answer.</p>
+                        <textarea id="qa-input-text" class="w-full h-40 p-3 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Paste medical text here..."></textarea>
+                        <input type="text" id="qa-input-question" class="mt-4 w-full p-3 border border-slate-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ask a question, e.g., 'What is the dosage for Lisinopril?'">
+                        <button id="qa-button" class="mt-4 w-full bg-purple-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-purple-700 transition-colors">Get Answer</button>
+                        <div id="qa-output-container" class="mt-4 hidden">
+                            <h4 class="font-bold text-slate-800">AI Answer:</h4>
+                            <div id="qa-output" class="mt-2 p-4 bg-slate-50 rounded-md text-slate-700 prose max-w-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pilot Program Section -->
+        <section id="pilot-program" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="bg-indigo-700 rounded-2xl p-10 md:p-16 text-center text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold">Become One of Our First Five Founding Partners.</h2>
+                    <p class="mt-4 max-w-2xl mx-auto">We're offering a limited number of legal professionals the chance to shape the future of MedExtract AI. As a pilot partner, you'll receive:</p>
+                    <div class="mt-8 grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-indigo-600 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg">Free, Unlimited Access</h4>
+                            <p class="mt-1 text-indigo-200">For 6 months. No costs, no commitments.</p>
+                        </div>
+                        <div class="bg-indigo-600 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg">White-Glove Onboarding</h4>
+                            <p class="mt-1 text-indigo-200">Dedicated support to get you and your team up and running.</p>
+                        </div>
+                        <div class="bg-indigo-600 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg">Direct Influence</h4>
+                            <p class="mt-1 text-indigo-200">Your feedback will directly impact the features we build next.</p>
+                        </div>
+                    </div>
+                    <p class="mt-8 text-indigo-200">All we ask for in return is your honest feedback in a few short calls over the next few months.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center">Ready to revolutionize your workflow?</h2>
+                    <p class="mt-4 text-lg text-slate-600 text-center">Spots are limited to five firms to ensure we can provide personalized support. Apply now to secure your spot.</p>
+                    <form id="pilot-form" class="mt-10 space-y-6 bg-white p-8 rounded-xl shadow-2xl border border-slate-200">
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-slate-700">Full Name</label>
+                            <input type="text" name="full-name" id="full-name" required class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700">Work Email</label>
+                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-slate-700">Law Firm / Company Name</label>
+                            <input type="text" name="company" id="company" required class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="practice-area" class="block text-sm font-medium text-slate-700">Primary Practice Area</label>
+                            <input type="text" name="practice-area" id="practice-area" placeholder="e.g., Personal Injury, Disability Law" required class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Submit My Application
+                            </button>
+                        </div>
+                    </form>
+                    <div id="form-success" class="hidden mt-10 p-4 bg-green-100 text-green-800 rounded-md text-center">
+                        <p class="font-semibold">Thank you! Your application has been received.</p>
+                        <p>We'll be in touch within 48 hours to discuss the next steps.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-lg font-semibold text-white">MedExtract AI</h3>
+                    <p class="mt-2 text-sm">AI-Powered Medical Record Review for Legal Professionals.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white">Contact</h3>
+                    <ul class="mt-2 space-y-1 text-sm">
+                        <li><a href="mailto:pilot@medextractai.com" class="hover:text-white">pilot@medextractai.com</a></li>
+                        <li>(305) 930-5809</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-white">Legal</h3>
+                    <ul class="mt-2 space-y-1 text-sm">
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-700 pt-8 text-center text-sm">
+                <p>&copy; 2025 MedExtract AI (SasyOracle Inc.). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Gemini API Integration ---
+        const API_KEY = ""; // This will be handled by the environment
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+
+        async function callGemini(prompt) {
+            const payload = {
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    return "Sorry, the AI could not generate a response. The response from the API was empty or malformed.";
+                }
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                return `An error occurred: ${error.message}. Please check the console for details.`;
+            }
+        }
+
+        // --- Demo UI Elements ---
+        const summaryButton = document.getElementById('summary-button');
+        const summaryInput = document.getElementById('summary-input');
+        const summaryOutputContainer = document.getElementById('summary-output-container');
+        const summaryOutput = document.getElementById('summary-output');
+
+        const qaButton = document.getElementById('qa-button');
+        const qaInputText = document.getElementById('qa-input-text');
+        const qaInputQuestion = document.getElementById('qa-input-question');
+        const qaOutputContainer = document.getElementById('qa-output-container');
+        const qaOutput = document.getElementById('qa-output');
+        
+        // --- Demo Event Listeners ---
+        summaryButton.addEventListener('click', async () => {
+            const inputText = summaryInput.value;
+            if (!inputText.trim()) {
+                alert("Please paste some text to summarize.");
+                return;
+            }
+            
+            setLoadingState(summaryButton, summaryOutput, summaryOutputContainer);
+            const prompt = `Summarize the following medical text into a few key bullet points for a legal professional:\n\n---\n\n${inputText}`;
+            const summary = await callGemini(prompt);
+            setResultState(summaryButton, summaryOutput, summary, "Generate Summary");
+        });
+
+        qaButton.addEventListener('click', async () => {
+            const text = qaInputText.value;
+            const question = qaInputQuestion.value;
+            if (!text.trim() || !question.trim()) {
+                alert("Please provide both the medical text and a question.");
+                return;
+            }
+
+            setLoadingState(qaButton, qaOutput, qaOutputContainer);
+            const prompt = `Based *only* on the medical text provided below, answer the following question. If the answer is not in the text, say "The answer is not found in the provided text."\n\nMEDICAL TEXT:\n---\n${text}\n---\n\nQUESTION:\n${question}`;
+            const answer = await callGemini(prompt);
+            setResultState(qaButton, qaOutput, answer, "Get Answer");
+        });
+
+        function setLoadingState(button, outputElement, container) {
+            button.disabled = true;
+            button.innerHTML = '<div class="loader h-5 w-5 mx-auto"></div>';
+            outputElement.innerHTML = '';
+            container.classList.remove('hidden');
+        }
+
+        function setResultState(button, outputElement, resultText, originalButtonText) {
+            button.disabled = false;
+            button.textContent = originalButtonText;
+            outputElement.innerHTML = resultText.replace(/\n/g, '<br>');
+        }
+
+        // --- Pilot Form Logic ---
+        const form = document.getElementById('pilot-form');
+        const formSuccessMessage = document.getElementById('form-success');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            form.classList.add('hidden');
+            formSuccessMessage.classList.remove('hidden');
+        });
+    </script>
+
+</body>
+</html>
